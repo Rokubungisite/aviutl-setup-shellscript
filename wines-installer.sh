@@ -27,8 +27,8 @@ Can I install  same software ?(y/n)
 case "$answer" in
 	[yY])
 	WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg
-	WINEPREFIX=~/win64 winecfg
 	WINEPREFIX=$HOME/wine32 winetricks allfonts
+	WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg
 	export WINEPREFIX=$HOME/wine32
 	export WINEARCH=win32
 	LANG=ja_JP.utf8 wine aviutl.exe

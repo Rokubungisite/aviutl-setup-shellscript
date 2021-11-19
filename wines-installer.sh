@@ -15,7 +15,8 @@ case "$answer" in
 	cd "${HOME}/Downloads"
 	wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 	chmod +x winetricks
-	sudo cp winetricks /usr/local/bin ;;
+	sudo cp winetricks /usr/local/bin 
+	winetricks fakejapanese_ipamona;;
 	[nN]) echo "Finish" ;;
 	*) echo "Please  Push y or n key."
 esac

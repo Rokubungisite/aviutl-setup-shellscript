@@ -2,23 +2,25 @@
 sudo apt-get update
 sudo dpkg --add-architecture i386
 
-read -p "Wineをインストールしますか? ※wineの設定(windowsバージョン)はxpにしてください(y/n): " answer
+read -p "WineとWinetricksをインストールしますか? ※wineの設定(windowsバージョン)はxpにしてください(y/n): " answer
 case "$answer" in
 	[yY]) sudo apt install wine 
 	      sudo apt-get install winetricks
+	　　　　cd "${HOME}/Downloads"
+	　　　　wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+	　　　　chmod +x winetricks
+	　　　　sudo cp winetricks /usr/local/bin
 	      winecfg
+	     　WINEPREFIX=~/.NET45-2 winetricks dotnet452
+　　　　　　　　　WINEPREFIX=~/.NET45-2　winetricks fakejapanese_ipamona
 	      winetricks dotnet452;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac
 
-read -p "winetricksもインストールしますか? 同時にaviutlのセットアップも行います。 (y/n)" answer
+read -p "aviutlのセットアップを行います。 (y/n)" answer
 case "$answer" in
 	[yY]) 
-	cd "${HOME}/Downloads"
-	wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-	chmod +x winetricks
-	sudo cp winetricks /usr/local/bin
 	winetricks fakejapanese_ipamona
 	wget http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip
 	wget http://spring-fragrance.mints.ne.jp/aviutl/exedit93rc1.zip
@@ -35,12 +37,14 @@ case "$answer" in
 	cp lwcolor.auc lwdumper.auf lwinput.aui lwmuxer.auf ../aviutl110/Plugins
 	cd ../
 	cp -r aviutl110 デスクトップ/
-	wine x264guiEx_2.68/auo_setup.exe
+	WINEPREFIX=~/.NET45-2 wine x264guiEx_2.68/auo_setup.exe
         WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg 
         WINEPREFIX=$HOME/wine32 winetricks allfonts
         WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg 
         export WINEPREFIX=$HOME/wine32
-        export WINEARCH=win32;;
+        export WINEARCH=win32
+	rm -r .NET45-2　x264guiEx_2.68 aviutl110 exedit93rc1 L-SMASH_Works_r940_plugins x264guiEx_2.68.zip aviutl110.zip exedit93rc1.zip L-SMASH_Works_r940_plugins.zip
+	firefox https://aviutl.info/l-smash-works/#toc5;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac

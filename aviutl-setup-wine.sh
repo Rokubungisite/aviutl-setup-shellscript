@@ -4,16 +4,10 @@ sudo dpkg --add-architecture i386
 
 read -p "WineとWinetricksをインストールしますか? (y/n): " answer
 case "$answer" in
-	[yY]) sudo apt install wine 
-	　　　　cd "${HOME}/Downloads"
-	　　　　wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-	　　　　chmod +x winetricks
-	　　　　sudo cp winetricks /usr/local/bin
-              sudo apt-get install winetricks
+	[yY]) sudo apt install wine  -y
+              sudo apt-get install winetricks -y
 	      winecfg
-	      winetricks dotnet452
-　　　　　　　　 winetricks fakejapanese_ipamona
-	      winetricks dotnet452;;
+	      WINEPREFIX=~/.NET45-2 wineboot;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac
@@ -21,11 +15,16 @@ esac
 read -p "aviutlのセットアップを行います。※wineの設定(windowsバージョン)はxpにしてください。(y/n)" answer
 case "$answer" in
 	[yY]) 
+	cd "${HOME}/Downloads"
+	wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+	chmod +x winetricks
+	sudo cp winetricks /usr/local/bin
+	winetricks fakejapanese_ipamona
 	wget http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip
 	wget http://spring-fragrance.mints.ne.jp/aviutl/exedit93rc1.zip
 	wget https://gwdhla.dm.files.1drv.com/y4mSzKeZxrlo7VJZeAYXkbtM4OtK3r7L8PqzXhLVXVFkKzYe3J96cjwLA6MHUynyKaPqQahP_qb4sgje9NSoXZFfe8rVtmK7VHV9deOdShrqljJFW1_IPrw9cMgaNA9vH_97KWbHAKVrs3tc_BCwyiY3SnY0HPWfx-nOEnaqC0rz3MEyv7ec8qahAKw3hhBgAAZ/x264guiEx_2.68.zip
 	wget https://pop.4-bit.jp/bin/l-smash/L-SMASH_Works_r940_plugins.zip
-	sudo apt install unar
+	sudo apt install unar -y
 	unar aviutl110.zip
 	unar exedit93rc1.zip
 	unar x264guiEx_2.68.zip
@@ -36,7 +35,10 @@ case "$answer" in
 	cp lwcolor.auc lwdumper.auf lwinput.aui lwmuxer.auf ../aviutl110/Plugins
 	cd ../
 	cp -r aviutl110 デスクトップ/
-	wine x264guiEx_2.68/auo_setup.exe
+	WINEPREFIX=~/.NET45-2 winetricks dotnet452
+	WINEPREFIX=~/.NET45-2 winetricks fakejapanese_ipamona
+	WINEPREFIX=~/.NET45-2 winecfg
+	WINEPREFIX=~/.NET45-2 wine x264guiEx_2.68/auo_setup.exe
         WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg 
         WINEPREFIX=$HOME/wine32 winetricks allfonts
         WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg 

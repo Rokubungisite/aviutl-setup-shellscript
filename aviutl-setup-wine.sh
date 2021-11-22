@@ -5,11 +5,11 @@ sudo dpkg --add-architecture i386
 read -p "WineとWinetricksをインストールしますか? (y/n): " answer
 case "$answer" in
 	[yY]) sudo apt install wine 
-	      sudo apt-get install winetricks
 	　　　　cd "${HOME}/Downloads"
 	　　　　wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 	　　　　chmod +x winetricks
 	　　　　sudo cp winetricks /usr/local/bin
+              sudo apt-get install winetricks
 	      winecfg
 	     　WINEPREFIX=~/.NET45-2 winetricks dotnet452
 　　　　　　　　　WINEPREFIX=~/.NET45-2　winetricks fakejapanese_ipamona

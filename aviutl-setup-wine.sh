@@ -2,7 +2,7 @@
 sudo apt-get update
 sudo dpkg --add-architecture i386
 
-read -p "WineとWinetricksをインストールしますか? ※wineの設定(windowsバージョン)はxpにしてください(y/n): " answer
+read -p "WineとWinetricksをインストールしますか? (y/n): " answer
 case "$answer" in
 	[yY]) sudo apt install wine 
 	      sudo apt-get install winetricks
@@ -18,7 +18,7 @@ case "$answer" in
 	*) echo "ｙかｎのキーを押してよ"
 esac
 
-read -p "aviutlのセットアップを行います。 (y/n)" answer
+read -p "aviutlのセットアップを行います。※wineの設定(windowsバージョン)はxpにしてください。(y/n)" answer
 case "$answer" in
 	[yY]) 
 	winetricks fakejapanese_ipamona
@@ -37,6 +37,7 @@ case "$answer" in
 	cp lwcolor.auc lwdumper.auf lwinput.aui lwmuxer.auf ../aviutl110/Plugins
 	cd ../
 	cp -r aviutl110 デスクトップ/
+	WINEPREFIX=~/.NET45-2 winecfg
 	WINEPREFIX=~/.NET45-2 wine x264guiEx_2.68/auo_setup.exe
         WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg 
         WINEPREFIX=$HOME/wine32 winetricks allfonts

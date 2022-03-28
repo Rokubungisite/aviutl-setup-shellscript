@@ -1,6 +1,6 @@
 # aviutl-setup-shellscript
 
-aviutlをubuntuで使えるように設定をする簡易なスクリプトです。<br>
+aviutlをlinux上で使えるようにセットアップをする簡易なスクリプト<br>
 下記のをダウンロードしてきてセットアップしWine上で使用できるように設定します。<br>
 <br>
 ・AviUtl<br>

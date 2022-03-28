@@ -9,8 +9,8 @@ case "$answer" in
 		sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
 		sudo apt update
 		sudo apt install --install-recommends winehq-staging -y
-		wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-		chmod +x winetricks;;
+		sudo apt install -y winetricks
+		;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac

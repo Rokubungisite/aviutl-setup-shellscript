@@ -1,10 +1,9 @@
 #!/bin/bash
-sudo apt-get update
-sudo dpkg --add-architecture i386
 
 read -p "WineとWinetricksをインストールしますか? *ubuntu20.04に対応しStaging branchをインストールします。(y/n): " answer
 case "$answer" in
-	[yY]) wget -nc https://dl.winehq.org/wine-builds/winehq.key
+	[yY]) sudo dpkg --add-architecture i386
+		wget -nc https://dl.winehq.org/wine-builds/winehq.key
 		sudo apt-key add winehq.key
 		sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
 		sudo apt update

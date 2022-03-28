@@ -8,7 +8,7 @@ case "$answer" in
 		sudo apt-key add winehq.key
 		sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
 		sudo apt update
-		sudo apt install --install-recommends winehq-staging
+		sudo apt install --install-recommends winehq-staging -y
 		wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 		chmod +x winetricks;;
 	[nN]) echo "終了" ;;

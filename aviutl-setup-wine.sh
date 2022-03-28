@@ -4,24 +4,22 @@ sudo dpkg --add-architecture i386
 
 read -p "WineとWinetricksをインストールしますか? *ubuntu20.04に対応しStaging branchをインストールします。(y/n): " answer
 case "$answer" in
-	[yY]) 
-	wget -nc https://dl.winehq.org/wine-builds/winehq.key
-	sudo apt-key add winehq.key
-	sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
-	sudo apt update
-	sudo apt install --install-recommends winehq-staging
-	wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-	chmod +x winetricks;;
+	[yY]) wget -nc https://dl.winehq.org/wine-builds/winehq.key
+		sudo apt-key add winehq.key
+		sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' 
+		sudo apt update
+		sudo apt install --install-recommends winehq-staging
+		wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+		chmod +x winetricks;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac
 
 read -p "wine用にフォントをインストールしますか？(y/n): " answer
 case "$answer" in
-	[yY])
-	winetricks fakejapanese_ipamona
-	winetricks fakejapanese_vlgothic
-	winetricks corefonts;;
+	[yY])winetricks fakejapanese_ipamona
+		winetricks fakejapanese_vlgothic
+		winetricks corefonts;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac

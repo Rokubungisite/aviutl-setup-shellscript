@@ -11,6 +11,6 @@ aviutlをlinux上で使えるようにセットアップをする簡易なスク
 *ubuntu20.04用です。<br>
 <br>
 使い方<br>
-<br>
-１　wgetコマンドやgitコマンドなどでダウンロードしてください。<br>
-２　aviutl-setup-wine.shをホームディレクトリに移動させて実行してください。<br>
+下記のコマンドを実行で終わります。<br>
+１　wget https://raw.githubusercontent.com/gendousite/aviutl-setup-shellscript/master/aviutl-setup-wine.sh<br>
+２　sh aviutl-setup-wine.sh<br>

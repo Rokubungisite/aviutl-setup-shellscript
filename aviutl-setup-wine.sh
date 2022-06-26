@@ -28,6 +28,8 @@ esac
 	winecfg
 	WINEARCH=win32 WINEPREFIX=$HOME/.wine_setting wineboot
 	WINEPREFIX=$HOME/.wine_setting winetricks dotnet452
+	wget https://raw.githubusercontent.com/gendousite/aviutl-setup-shellscript/master/aviutl.desktop
+	wget https://upload.wikimedia.org/wikipedia/commons/d/d6/AviUtl_icon.png
 	wget http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip
 	wget http://spring-fragrance.mints.ne.jp/aviutl/exedit93rc1.zip
 	wget https://pop.4-bit.jp/bin/l-smash/L-SMASH_Works_r940_plugins.zip
@@ -38,6 +40,8 @@ esac
 	unar x264guiEx_3.03.zip
 	unar L-SMASH_Works_r940_plugins.zip
 	cp -pR exedit93rc1/* aviutl110/
+	cp -r AviUtl_icon.png aviutl110/
+	cp -r aviutl.desktop デスクトップ/
 	mkdir aviutl110/Plugins
 	cd  L-SMASH_Works_r940_plugins
 	cp lwcolor.auc lwdumper.auf lwinput.aui lwmuxer.auf ../aviutl110/Plugins
@@ -47,6 +51,4 @@ esac
 	cd plugins
 	cp -r x264guiEx_stg auo_setup.auf x264guiEx.ini x264guiEx.auo ../../aviutl110/Plugins
 	cd ../../
-	cp -r aviutl110 デスクトップ/
-	rm -r aviutl110 exedit93rc1 L-SMASH_Works_r940_plugins x264guiEx_3.03 x264guiEx_3.03.zip aviutl110.zip exedit93rc1.zip L-SMASH_Works_r940_plugins.zip
-	WINEPREFIX=$HOME/.wine_setting wine  デスクトップ/aviutl110/aviutl.exe
+	rm -r aviutl.desktop aviutl110 AviUtl_icon.png exedit93rc1 L-SMASH_Works_r940_plugins x264guiEx_3.03 x264guiEx_3.03.zip aviutl110.zip exedit93rc1.zip L-SMASH_Works_r940_plugins.zip

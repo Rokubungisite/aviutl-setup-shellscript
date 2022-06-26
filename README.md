@@ -14,5 +14,5 @@ aviutlをlinux上で使えるようにセットアップをする簡易なスク
 下記の1-2をターミナルで実行し、３-４の内容を行えば終了です。<br>
 １　wget https://raw.githubusercontent.com/gendousite/aviutl-setup-shellscript/master/aviutl-setup-wine.sh<br>
 ２　sh aviutl-setup-wine.sh<br>
-３　デスクトップ上に現れたaviutlアイコンをテキストエディタで開きます。
-４　下から二行のそれぞれにある「ユーザー名を入力してください」という所にユーザー名を入力してください。
+３　デスクトップ上に現れたaviutlアイコンをテキストエディタで開きます。<br>
+４　下から二行のそれぞれにある「ユーザー名を入力してください」という所にユーザー名を入力してください。<br>

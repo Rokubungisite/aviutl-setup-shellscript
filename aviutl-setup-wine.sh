@@ -51,4 +51,4 @@ esac
 	cd plugins
 	cp -r x264guiEx_stg auo_setup.auf x264guiEx.ini x264guiEx.auo ../../aviutl110/Plugins
 	cd ../../
-	rm -r aviutl.desktop aviutl110 AviUtl_icon.png exedit93rc1 L-SMASH_Works_r940_plugins x264guiEx_3.03 x264guiEx_3.03.zip aviutl110.zip exedit93rc1.zip L-SMASH_Works_r940_plugins.zip
+	rm -r aviutl.desktop AviUtl_icon.png exedit93rc1 L-SMASH_Works_r940_plugins x264guiEx_3.03 x264guiEx_3.03.zip aviutl110.zip exedit93rc1.zip L-SMASH_Works_r940_plugins.zip

@@ -9,6 +9,7 @@ case "$answer" in
 		sudo apt update
 		sudo apt install --install-recommends winehq-staging -y
 		sudo apt install -y winetricks
+		winecfg
 		;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
@@ -16,13 +17,17 @@ esac
 
 read -p "wine用にフォントをインストールしますか？(y/n): " answer
 case "$answer" in
-	[yY])winetricks fakejapanese_ipamona
-		winetricks fakejapanese_vlgothic
-		winetricks corefonts;;
+	[yY])
+		WINEARCH=win32 WINEPREFIX=$HOME/.wine_setting wineboot
+		WINEPREFIX=$HOME/.wine_setting winetricks fakejapanese_ipamona
+		WINEPREFIX=$HOME/.wine_setting winetricks fakejapanese_vlgothic
+		WINEPREFIX=$HOME/.wine_setting winetricks corefonts;;
 	[nN]) echo "終了" ;;
 	*) echo "ｙかｎのキーを押してよ"
 esac
-
+	winecfg
+	WINEARCH=win32 WINEPREFIX=$HOME/.wine_setting wineboot
+	WINEPREFIX=$HOME/.wine_setting winetricks dotnet452
 	wget http://spring-fragrance.mints.ne.jp/aviutl/aviutl110.zip
 	wget http://spring-fragrance.mints.ne.jp/aviutl/exedit93rc1.zip
 	wget https://pop.4-bit.jp/bin/l-smash/L-SMASH_Works_r940_plugins.zip
@@ -44,4 +49,4 @@ esac
 	cd ../../
 	cp -r aviutl110 デスクトップ/
 	rm -r aviutl110 exedit93rc1 L-SMASH_Works_r940_plugins x264guiEx_3.03 x264guiEx_3.03.zip aviutl110.zip exedit93rc1.zip L-SMASH_Works_r940_plugins.zip
-	wine デスクトップ/aviutl110/aviutl.exe
+	WINEPREFIX=$HOME/.wine_setting wine  デスクトップ/aviutl110/aviutl.exe

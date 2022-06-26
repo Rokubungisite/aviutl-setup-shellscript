@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Aviutl
+Exec=env WINEPREFIX="/home/ユーザー名を入力してください/.wine_setting" wine デスクトップ/aviutl110/aviutl.exe
+Icon=/home/ユーザー名を入力してください/デスクトップ/aviutl110/AviUtl_icon.png
